@@ -4,12 +4,23 @@
 
 .container {
   padding: 0 10px;
+
+  @include for-width($media-med) {
+    max-width: 1400px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .row {
   display: flex;
   flex-direction: column;
   padding: 1em 10px;
+
+  @include for-width($media-med) {
+    flex-direction: row;
+  }
 }
 
 [class^=col] {
@@ -20,66 +31,19 @@
   border-radius: 5px;
 }
 
-.theme.col-1 {
-  background-color: $color-info;
-}
-
-.theme.col-2 {
-  background-color: $color-warning;
-}
-
-.theme.col-3 {
-  background-color: $color-lilac;
-}
-
-.theme.col-4 {
-  background-color: $color-anakiwa;
-}
-
-.theme.col-5 {
-  background-color: $color-algae;
-}
-
-.theme.col-6 {
-  background-color: $color-fountain;
-}
-
-.theme.col-7 {
-  background-color: $color-pink;
-}
-
-.theme.col-8 {
-  background-color: $color-tangerine;
-}
-
-.theme.col-9 {
-  background-color: $color-error;
-}
-
-.theme.col-10 {
-  background-color: $color-success;
-}
-
-.theme.col-11 {
-  background-color: $color-secondary;
-}
-
-.theme.col-12 {
-  background-color: $color-riptide;
+// Not happy about having to use a number for the key to achieve this.
+// Any way around this?
+@each $i, $color in $themes {
+  .theme.col-#{$i} {
+    background-color: $color;
+  }
 }
 
 .card {
   flex-basis: 100%;
 }
 
-@media (min-width: $media-med) {
-  .container {
-    max-width: 1400px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
+@include for-width($media-med) {
   .centered {
     display: block;
     margin-left: auto;
@@ -95,57 +59,15 @@
     justify-content: center;
     margin-top: 0;
     align-items: center;
+
+    & + & {
+      margin-left: 10px;
+    }
   }
 
-  [class^=col] + [class^=col] {
-    margin-left: 10px;
-  }
-
-  .col-1 {
-    flex-basis: 8.33%;
-  }
-
-  .col-2 {
-    flex-basis: 16.67%;
-  }
-
-  .col-3 {
-    flex-basis: 25.00%;
-  }
-
-  .col-4 {
-    flex-basis: 33.33%;
-  }
-
-  .col-5 {
-    flex-basis: 41.67%;
-  }
-
-  .col-6 {
-    flex-basis: 50.00%;
-  }
-
-  .col-7 {
-    flex-basis: 58.33%;
-  }
-
-  .col-8 {
-    flex-basis: 66.67%;
-  }
-
-  .col-9 {
-    flex-basis: 75.00%
-  }
-
-  .col-10 {
-    flex-basis: 83.33%;
-  }
-
-  .col-11 {
-    flex-basis: 91.67%;
-  }
-
-  .col-12 {
-    flex-basis: 100%;
+  @each $i, $width in $col-widths {
+    .col-#{$i} {
+      flex-basis: $width;
+    }
   }
 }

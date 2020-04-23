@@ -1,0 +1,18 @@
+/* ============================================= */
+/*              Mixins                           */
+/* ============================================= */
+// Media Query mixin
+@mixin for-width($w) {
+  @media (min-width: $w) {
+    @content;
+  }
+}
+
+// Button color/hover mixin
+@mixin btn-color($color) {
+  background-color: $color;
+
+  &:hover {
+    background-color: lighten($color, 15%);
+  }
+}

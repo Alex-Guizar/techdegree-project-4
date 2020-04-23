@@ -10,7 +10,7 @@ $color-warning: #fd7856;
 $color-info: #927bc1;
 
 $color-lilac: #deb2ee;
-$color-anakiwa: #7ee6fd;
+$color-elec-blue: #7ee6fd;
 $color-algae: #88d9a0;
 $color-fountain: #4da2bb;
 $color-pink: #ec9fa3;
@@ -19,3 +19,34 @@ $color-riptide: #80e8d1;
 
 // Media Queries
 $media-med: 768px;
+
+// Maps
+$themes: (
+  '1': $color-info,
+  '2': $color-warning,
+  '3': $color-lilac,
+  '4': $color-elec-blue,
+  '5': $color-algae,
+  '6': $color-fountain,
+  '7': $color-pink,
+  '8': $color-tangerine,
+  '9': $color-error,
+  '10': $color-success,
+  '11': $color-secondary,
+  '12': $color-riptide,
+);
+
+$col-widths: (
+  '1': 8.33%,
+  '2': 16.67%,
+  '3': 25.00%,
+  '4': 33.33%,
+  '5': 41.67%,
+  '6': 50.00%,
+  '7': 58.33%,
+  '8': 66.67%,
+  '9': 75.00%,
+  '10': 83.33%,
+  '11': 91.67%,
+  '12': 100%,
+);
